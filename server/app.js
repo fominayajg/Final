@@ -78,6 +78,10 @@ const authRouter = require('./routes/auth');
 app.use('/api/auth', authRouter);
 
 
+const profileRouter = require('./routes/profile');
+app.use('/profile', profileRouter);
+
+
 //GOOGLE
 
 

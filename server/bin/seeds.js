@@ -18,14 +18,33 @@ let pets = [
     {
         name:"Goku",
         type:"DOG",
+        data:{
+            sex:'M',
+            age:'4 Years',
+            castrated:'Yes',
+            race:'Mix'
+        },
         weight:[
+          
             {
-                weight:42,
+                weight:38.8,
+                date: "07-07-2019"
+            },
+            {
+                weight: 42,
                 date: "07-09-2019"
             },
             {
-                weight:38,
-                date: "07-07-2019"
+                weight: 45.5,
+                date: "18-09-2019"
+            },
+            {
+                weight: 36.3,
+                date: "23-09-2019"
+            },
+            {
+                weight: 40,
+                date: "28-09-2019"
             },
         ],
         owner:"proyectofinalih@gmail.com",
@@ -44,14 +63,32 @@ let pets = [
     {
         name: "Gato",
         type: "CAT",
+        data: {
+            sex: 'F',
+            age: '2 Years',
+            castrated: 'No',
+            race: 'Mix'
+        },
         weight: [
             {
-                weight: 12,
+                weight: 20,
+                date: "07-07-2019"
+            },
+            {
+                weight: 22,
                 date: "07-09-2019"
             },
             {
                 weight: 18,
-                date: "07-07-2019"
+                date: "18-09-2019"
+            },
+            {
+                weight: 19,
+                date: "23-09-2019"
+            },
+            {
+                weight: 16,
+                date: "28-09-2019"
             },
         ],
         owner: "proyectofinalih@gmail.com",

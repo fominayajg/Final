@@ -4,6 +4,8 @@ import ProfileService from "../../services/profile";
 import Selector from './selector/Selector';
 import Thread from './thread/Thread';
 import { Switch, Route, Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom"
+import Consults from './consults/Consults';
 
 class Contents extends Component {
 
@@ -34,10 +36,15 @@ class Contents extends Component {
     this.setState({
       ...this.state,
       selectedPet: pet
-    });
-    
+    },()=>this.props.history.push("/home"))
+    // this.renderRedirect()
   }
 
+  renderRedirect = () => {
+
+      this.props.history.push("/consult")
+  
+  }
 
   componentWillReceiveProps(nextProps) {
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
@@ -54,6 +61,8 @@ class Contents extends Component {
         {/* <Thread pet={this.state.selectedPet} /> */}
         <Switch>
           <Route exact path="/home" render={() => <Thread pet={this.state.selectedPet} />} />
+          <Route exact path="/consults" render={() => <Consults pet={this.state.selectedPet} />} />
+
         </Switch>
       </div>
     );
@@ -61,4 +70,4 @@ class Contents extends Component {
   }
 }
 
-export default Contents;
+export default withRouter(Contents);

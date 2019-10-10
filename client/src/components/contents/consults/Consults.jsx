@@ -1,11 +1,74 @@
 import React, { Component } from 'react'
+import './Consults.css'
+import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom"
 
-export default class Consults extends Component {
-    render() {
-        return (
-            <div>
-                holi
-            </div>
-        )
+ class Consults extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            pet: this.props.pet,
+            thread:[],
+            show:false
     }
 }
+
+        componentWillReceiveProps(nextProps) {
+            this.setState({ ...this.state, pet: nextProps.pet })
+        }
+
+        setThread(thread){
+            this.setState({ ...this.state, thread: thread,show:true }, () => console.log(this.state.thread.consultas))
+        }
+
+        hide(){
+            this.setState({ ...this.state, show: false })
+        }
+
+    render() {
+        console.log(this.state.thread)
+        if(!this.state.show){
+            return (
+                <div className="consults">
+                    <Link to="/home"><i className="fa fa-arrow-left" aria-hidden="true"></i></Link>
+                    <h4>Hilos de consultas</h4>
+                    <div className="container">
+                        {this.props.pet.thread.map((thread, idx) => <div key={idx} onClick={() => this.setThread(thread)} className="hilo">{thread.title}</div>)}
+                    </div>
+                </div>
+            )
+        }
+        else{
+            return(
+                <div className="consults">
+                    <i onClick={()=>this.hide()} className="fa fa-arrow-left" aria-hidden="true"></i>
+                    <h4>{this.state.thread.title}</h4>
+                    <div className="containerdos">
+                        {this.state.thread.consultas.map(consulta =>{return(
+                        <div className="consulta">
+                            <div className="fecha">
+                                <div>{consulta.date}</div>
+                                <div className="esp">{consulta.esp}</div>
+                            </div>
+                            <div className="description">
+                                    Description:<br></br><br></br>
+                                {consulta.description}
+                            </div>
+                            <div className="indications">
+                                    Indications:<br></br><br></br>
+                                {consulta.indications}
+                            </div>
+                        </div>
+                        )})}
+                        {/* <div>{this.state.thread.consultas[0].date}</div> */}
+
+                        
+                    </div>
+                </div>
+            )
+        }
+        
+    }
+}
+export default withRouter(Consults);

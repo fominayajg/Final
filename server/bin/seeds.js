@@ -50,14 +50,37 @@ let pets = [
         owner:"proyectofinalih@gmail.com",
         thread:[
             {
-                title:"vomitos",
-                consulta1:{
-                    date: "07-09-2019",
-                    esp:"general",
-                    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat. ",
-                    indications:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat."
-                },
+                title:"Vómitos",
+                consultas:[
+                    {
+                        date: "07-09-2019",
+                        esp: "general",
+                        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat. ",
+                        indications: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat."
+
+                    },
+
+
+                ],
             },
+           {
+               title: "Patas traseras",
+               consultas: [
+                   {
+                       date: "07-09-2019",
+                       esp: "general",
+                       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat. ",
+                       indications: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat."
+                   },
+                   {
+                       date: "08-09-2019",
+                       esp: "trauma",
+                       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat. ",
+                       indications: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat."
+                   }
+
+                ],
+           } 
         ],
     },
     {
@@ -95,18 +118,21 @@ let pets = [
         thread: [
             {
                 title: "vomitos",
-                consulta1:{
-                    date: "07-09-2019",
-                    esp: "general",
-                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat. ",
-                    indications: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat."
-                },
-                consulta2: {
-                    date: "07-09-2019",
-                    esp: "digestivo",
-                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat. ",
-                    indications: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat."
-                },
+                consultas: [
+                    {
+                        date: "07-09-2019",
+                        esp: "general",
+                        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat. ",
+                        indications: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat."
+                    },
+                    {
+                        date: "08-09-2019",
+                        esp: "trauma",
+                        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat. ",
+                        indications: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu quam cursus, scelerisque urna sed, convallis diam. Nam quis volutpat elit, vitae sagittis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam dolor ligula, volutpat fringilla dapibus in, ultricies sit amet erat. In sed tellus fringilla, euismod orci nec, placerat turpis. Aenean in sagittis dolor. Mauris vehicula justo nulla, a tempus ligula hendrerit at. Nulla commodo mauris sed nisi cursus volutpat."
+                    }
+
+                ],
             },
         ],
     }

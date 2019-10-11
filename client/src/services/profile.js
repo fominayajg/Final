@@ -9,8 +9,14 @@ class ProfileService {
     }
 
     allPets = (user) => {
-        return this.service.get(`/${user}`)
+        return this.service.get(`/pets/${user}`)
             .then(response => response.data)
+    }
+
+    allReservations=(date)=>{
+        
+        return this.service.get(`/reservations/${date}`)
+        .then(response=>response.data)
     }
 
 }

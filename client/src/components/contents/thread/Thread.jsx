@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Thread.css'
+import './thread.css'
 import Chart from '../Chart'
 import { Link } from "react-router-dom";
 

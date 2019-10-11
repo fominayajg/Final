@@ -62,7 +62,6 @@ i.fa.fa-arrow-left:hover{
     margin:0 auto 80px;
     border-radius: 10px;
     padding: 0 5% 20px;
-    
     box-shadow: 0 0px 4px 0px grey;
 }
 .consulta .fecha{
@@ -91,4 +90,52 @@ i.fa.fa-arrow-left:hover{
     font-size: 1.1em;
     line-height: 1.3em
 }
+.consulta a{
+    margin: 0 50%;
+    font-size :1.5em;
+    color:lightgrey;
+    transition: 0.3s all ease;
+}
 
+.consulta a:hover{
+    margin: 0 50%;
+    font-size :1.5em;
+    color:black;
+}
+.fa{
+margin-top:40px;
+}
+
+
+@media print {
+   .consulta .fecha{
+    display:flex;
+    border: 1px  solid #312d2d;
+    color: white;
+    border-top:0;
+    background: #312d2d;
+   border-radius: 0;
+    justify-content: space-between;
+    padding: 10px 30px;
+    font-size: 1.4em;
+
+}
+
+.description{
+    padding:0 50px;
+}
+
+.indications{
+   padding:0 50px;
+}
+.fa {
+    display: inline-block;
+    color: transparent;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+}

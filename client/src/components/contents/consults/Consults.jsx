@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import './Consults.css'
 import { Link } from "react-router-dom";
-import { withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom";
+import ReactToPrint from "react-to-print";
 
  class Consults extends Component {
 
@@ -19,7 +20,7 @@ import { withRouter } from "react-router-dom"
         }
 
         setThread(thread){
-            this.setState({ ...this.state, thread: thread,show:true }, () => console.log(this.state.thread.consultas))
+            this.setState({ ...this.state, thread: thread,show:true })
         }
 
         hide(){
@@ -27,7 +28,7 @@ import { withRouter } from "react-router-dom"
         }
 
     render() {
-        console.log(this.state.thread)
+        
         if(!this.state.show){
             return (
                 <div className="consults">
@@ -42,11 +43,14 @@ import { withRouter } from "react-router-dom"
         else{
             return(
                 <div className="consults">
+                   
                     <i onClick={()=>this.hide()} className="fa fa-arrow-left" aria-hidden="true"></i>
                     <h4>{this.state.thread.title}</h4>
                     <div className="containerdos">
                         {this.state.thread.consultas.map(consulta =>{return(
-                        <div className="consulta">
+                            
+                            <div ref={el => (this.componentRef = el)} className="consulta">
+                               
                             <div className="fecha">
                                 <div>{consulta.date}</div>
                                 <div className="esp">{consulta.esp}</div>
@@ -59,6 +63,10 @@ import { withRouter } from "react-router-dom"
                                     Indications:<br></br><br></br>
                                 {consulta.indications}
                             </div>
+                                <ReactToPrint
+                                    trigger={() => <a href="#"><i class="fa fa-print" aria-hidden="true"></i></a>}
+                                    content={() => this.componentRef}
+                                />
                         </div>
                         )})}
                         {/* <div>{this.state.thread.consultas[0].date}</div> */}

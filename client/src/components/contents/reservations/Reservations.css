@@ -1,0 +1,52 @@
+.reservations{
+    width: 85%;
+    height: 93vh;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
+.reservations h4{
+    font-weight: 400;
+}
+.reservations form{
+    
+    width:49%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top:10%;
+    align-items: center;
+    font-size: 1.2em;
+
+}
+
+.reservations form input{
+    width:30%;
+    padding: 10px 20px;
+    border-radius:3px;
+    text-align: center;
+    font-size: 1.01em;
+    border:1px solid lightgrey;
+}
+
+.reservations form label{
+    margin-top:40px;
+    margin-bottom: 10px;
+}
+
+.reservations input[type="submit"]{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-top:40px;
+    transition:0.3s all ease;
+    
+}
+
+.reservations input[type="submit"]:hover{
+    background:rgba(51,109,233,1);
+    border:0;
+    color:white;
+    transform: scale(1.2)
+}
+

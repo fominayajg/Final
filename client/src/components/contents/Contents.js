@@ -6,6 +6,7 @@ import Thread from './thread/Thread';
 import { Switch, Route, Redirect } from "react-router-dom";
 import { withRouter } from "react-router-dom"
 import Consults from './consults/Consults';
+import Reservations from './reservations/Reservations';
 
 class Contents extends Component {
 
@@ -62,6 +63,7 @@ class Contents extends Component {
         <Switch>
           <Route exact path="/home" render={() => <Thread pet={this.state.selectedPet} />} />
           <Route exact path="/consults" render={() => <Consults pet={this.state.selectedPet} />} />
+          <Route exact path="/reservations" render={() => <Reservations user={this.state.userEmail} pet={this.state.selectedPet} />} />
         </Switch>
       </div>
     );

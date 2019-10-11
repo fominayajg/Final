@@ -22,6 +22,31 @@ router.get('/reservations/:date', (req, res) => {
         })
 })
 
+router.get('/createreservations', (req, res) => {
+
+    console.log(req.query)
+    let consulta=[
+        {
+            email:req.query.user,
+            date: req.query.date,
+            time: req.query.hour,
+            pet: req.query.pet,
+        }
+    ]
+
+    Consulta.create(consulta).then(()=>{
+        res.status(200).json({ message: `Creada la cita para ${req.query.pet} correctamente`})
+    })
+
+
+
+    // Consulta.find({ date: req.params.date })
+    //     .then(consulta => res.status(200).json({ consulta }))
+    //     .catch(err => {
+    //         throw err
+    //     })
+})
+
 
 
 

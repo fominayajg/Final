@@ -42,7 +42,7 @@ export default class Chart extends Component {
                 {
                     label: "Weight Kg",
                     fill: true,
-                    lineTension: 0.5,
+                    lineTension: 0.3,
                     backgroundColor: "rgba(51, 109, 233,0.4)",
                     borderColor: "rgba(51,109,233,1)",
                     borderCapStyle: "butt",

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Reservations.css'
 import ProfileService from "../../../services/profile";
 import { Link } from "react-router-dom";
+import { create } from 'domain';
 
 export default class Reservations extends Component {
     constructor(props) {
@@ -14,6 +15,7 @@ export default class Reservations extends Component {
             show:false,
             existe:false,
             ok:false,
+            message:""
             
         }
         this.service = new ProfileService();
@@ -31,6 +33,7 @@ export default class Reservations extends Component {
         
         this.setState({
             ...this.state,
+            message:"",
             date:e.target.value
         },()=>{this.getReservations(this.state.date)})
     }
@@ -60,8 +63,21 @@ export default class Reservations extends Component {
     updateHour(e){
         this.setState({
             ...this.state,
-            hour: e.target.value
+            hour: e.target.value,
+            message:""
         }, () => { this.checkHour() })
+    }
+
+
+
+    async createRes(e){
+        e.preventDefault()
+        const x=await this.service.createReservation(this.state.hour, this.state.date, this.state.pet.name,this.props.user)
+        console.log(x.message)
+        this.setState({
+            ...this.state,
+            message: x.message
+        },()=>console.log(this.state.message))
     }
 
     render() {
@@ -91,8 +107,14 @@ export default class Reservations extends Component {
                         <p>Esta hora está ocupada</p>
                     )}
 
+                    
+
                     {this.state.ok &&(
-                        <input type="submit" value="OK"></input>
+                        <input onClick={(e)=>this.createRes(e)} type="submit" value="OK"></input>
+                    )}
+
+                    {this.state.message && (
+                        <p className="final">{this.state.message}</p>
                     )}
                     
                 </form>  

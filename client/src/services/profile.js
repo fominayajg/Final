@@ -18,6 +18,13 @@ class ProfileService {
         return this.service.get(`/reservations/${date}`)
         .then(response=>response.data)
     }
+    createReservation = (hour,date,pet,user) => {
+
+        // console.log(hour,date)
+        return this.service.get(`/createreservations/?date=${date}&hour=${hour}&pet=${pet}&user=${user}`)
+            .then(response => response.data)
+    }
+
 
 }
 

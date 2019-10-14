@@ -27,8 +27,7 @@ router.post('/signup', (req, res, next) => {
 
   const {username, password} = req.body;
 
-  console.log('username', username)
-  console.log('password', password)
+  
 
   // Check for non empty user or password
   if (!username || !password){
@@ -93,6 +92,9 @@ router.use((err, req, res, next) => {
 //GOOGLE
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
+const fs = require('fs');
+const { google } = require('googleapis')
+
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
@@ -123,7 +125,9 @@ passport.use(new GoogleStrategy({
 router.get('/google',
   passport.authenticate('google', {
     scope: ['https://www.googleapis.com/auth/userinfo.profile',
-      'https://www.googleapis.com/auth/userinfo.email']
+      'https://www.googleapis.com/auth/userinfo.email',
+      'https://www.googleapis.com/auth/calendar.events',
+    ]
   }));
 
 router.get('/google/callback',
@@ -131,6 +135,33 @@ router.get('/google/callback',
   function (req, res) {
     res.redirect('http://localhost:3000/Home');
   });
+
+
+
+  // router.get('/calendar',(req,res)=>{
+  //   function listEvents(auth) {
+  //     const calendar = google.calendar({ version: 'v3', auth });
+  //     calendar.events.list({
+  //       calendarId: 'primary',
+  //       timeMin: (new Date()).toISOString(),
+  //       maxResults: 10,
+  //       singleEvents: true,
+  //       orderBy: 'startTime',
+  //     }, (err, res) => {
+  //       if (err) return console.log('The API returned an error: ' + err);
+  //       const events = res.data.items;
+  //       if (events.length) {
+  //         console.log('Upcoming 10 events:');
+  //         events.map((event, i) => {
+  //           const start = event.start.dateTime || event.start.date;
+  //           console.log(`${start} - ${event.summary}`);
+  //         });
+  //       } else {
+  //         console.log('No upcoming events found.');
+  //       }
+  //     });
+  //   }
+  // })
 
 
 

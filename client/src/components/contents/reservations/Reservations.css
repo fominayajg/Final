@@ -2,7 +2,7 @@
     width: 85%;
     height: 93vh;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     position: relative;
 }
 .reservations h4{
@@ -10,13 +10,14 @@
 }
 .reservations form{
     
-    width:49%;
+    width:50%;
     display: flex;
     flex-direction: column;
     height: 100%;
     padding-top:10%;
     align-items: center;
     font-size: 1.2em;
+    
 
 }
 
@@ -35,10 +36,10 @@
 }
 
 .reservations input[type="submit"]{
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    margin-top:40px;
+    width: 200px;
+
+    
+    margin:60px 30px 0;
     transition:0.3s all ease;
     
 }
@@ -54,4 +55,11 @@
     font-size: 1.6em;
     color: green;
 }
+
+.submit{
+    display: flex;
+    justify-content: center;
+}
+
+
 

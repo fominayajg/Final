@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Reservations.css'
 import ProfileService from "../../../services/profile";
 import { Link } from "react-router-dom";
+import AuthService from "../../../components/auth/AuthService";
 import { create } from 'domain';
 
 export default class Reservations extends Component {
@@ -19,6 +20,7 @@ export default class Reservations extends Component {
             
         }
         this.service = new ProfileService();
+        this.authService= new AuthService
     }
 
     
@@ -80,6 +82,16 @@ export default class Reservations extends Component {
         },()=>console.log(this.state.message))
     }
 
+
+    async createCall(e) {
+        e.preventDefault()
+        const y = await this.authService.createCall(this.state.hour, this.state.date, this.state.pet.name, this.props.user)
+       
+    }
+
+
+
+
     render() {
         return (
             <div className="reservations">
@@ -110,7 +122,10 @@ export default class Reservations extends Component {
                     
 
                     {this.state.ok &&(
-                        <input onClick={(e)=>this.createRes(e)} type="submit" value="OK"></input>
+                        <div className="submit">
+                        <input onClick={(e)=>this.createRes(e)} type="submit" value="Consulta"></input>
+                        <input onClick={(e) => this.createCall(e)} type="submit" value="Videollamada"></input>
+                        </div>
                     )}
 
                     {this.state.message && (
@@ -118,6 +133,7 @@ export default class Reservations extends Component {
                     )}
                     
                 </form>  
+
 
                 
             </div>

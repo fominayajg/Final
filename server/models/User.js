@@ -7,6 +7,11 @@ const userSchema = new Schema({
     password: String,
     googleId: String,
     email:String,
+    role:{
+      type:String,
+      enum:["USER","VET"],
+      default:"USER"
+    },
     pets:[]
 }, {
   timestamps: {

@@ -28,6 +28,14 @@ class AuthService {
     return this.service.get('/logout',)
     .then(response => response.data)
   }
+
+  createCall = (hour, date, pet, mail) => {
+    console.log(hour, date, pet, mail)
+    // return this.service.get('/calendar')
+    //   .then(response => response.data)
+  }
 }
+
+
 
 export default AuthService;

@@ -25,6 +25,17 @@ class ProfileService {
             .then(response => response.data)
     }
 
+    searchVetPet(email){
+        return this.service.get(`/search/${email}`)
+            .then(response => response.data)
+    }
+
+    updateDataPet(email,petName,data){
+        // console.log(data[0])
+        return this.service.get(`/updatepet/?email=${email}&name=${petName}&age=${data[0]}&race=${data[1]}&sex=${data[2]}&castrated=${data[3]}`)
+            .then(response => response.data)
+    }
+
 
 }
 

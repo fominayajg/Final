@@ -1,9 +1,10 @@
 import axios from 'axios';
 
+
 class ProfileService {
     constructor() {
         this.service = axios.create({
-            baseURL: 'http://localhost:3010/profile',
+            baseURL: `${process.env.REACT_APP_API_URL}/profile`,
             withCredentials: true
         });
     }

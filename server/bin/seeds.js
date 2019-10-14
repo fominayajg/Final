@@ -3,7 +3,7 @@ require('dotenv').config();
 const mongoose = require("mongoose");
 const Pet = require("../models/Pet");
 
-const DBURL = "mongodb://localhost:27017/vet";
+const DBURL = "mongodb+srv://javi:javimolamazo@cluster0-c0evg.mongodb.net/test?retryWrites=true&w=majority";
 mongoose.Promise = Promise;
 console.log(DBURL)
 mongoose

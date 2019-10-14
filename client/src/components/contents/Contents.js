@@ -86,7 +86,7 @@ class Contents extends Component {
 
           <Switch>
             <Route exact path="/home" render={() => <Thread selectPet={(pet)=>this.selectPet(pet)} role={this.state.loggedInUser.role} pet={this.state.selectedPet} getNewInfo={(data)=>{this.getNewInfo(data)}} />} />
-            <Route exact path="/consults" render={() => <Consults pet={this.state.selectedPet} />} />
+            <Route exact path="/consults" render={() => <Consults user={this.state.loggedInUser} pet={this.state.selectedPet} />} />
           </Switch>
         </div>
       )

@@ -11,7 +11,8 @@ import ReactToPrint from "react-to-print";
         this.state = {
             pet: this.props.pet,
             thread:[],
-            show:false
+            show:false,
+            showform:false,
     }
 }
 
@@ -27,10 +28,20 @@ import ReactToPrint from "react-to-print";
             this.setState({ ...this.state, show: false })
         }
 
+        showform(){
+            console.log(this.state)
+            this.setState({ ...this.state, showform: true })
+        }
+     hideform() {
+         console.log(this.state)
+         this.setState({ ...this.state, showform: false })
+     }
+
     render() {
         
         if(!this.state.show){
-            return (
+            if(this.props.user.role==="USER")
+            {return (
                 <div className="consults">
                     <Link to="/home"><i className="fa fa-arrow-left" aria-hidden="true"></i></Link>
                     <h4>Hilos de consultas</h4>
@@ -38,7 +49,45 @@ import ReactToPrint from "react-to-print";
                         {this.props.pet.thread.map((thread, idx) => <div key={idx} onClick={() => this.setThread(thread)} className="hilo">{thread.title}</div>)}
                     </div>
                 </div>
-            )
+            )}
+            else{
+                if(!this.state.showform)
+                {return (
+                    <div className="consults">
+                        <div className="form">
+                            <div className="filtro"></div>
+                            <form>
+                                <input type="text" placeholder="Titulo del nuevo hilo"></input>
+                            </form>
+                        </div>
+                        <Link to="/home"><i className="fa fa-arrow-left" aria-hidden="true"></i></Link>
+                        <h4>Hilos de consultas</h4>
+                        <h5 onClick={()=>this.showform()}>Crear nuevo hilo +</h5>
+                        <div className="container">
+                            {this.props.pet.thread.map((thread, idx) => <div key={idx} onClick={() => this.setThread(thread)} className="hilo">{thread.title}</div>)}
+                        </div>
+                    </div>
+                )}else{
+                    return (
+                        <div className="consults">
+                            <div className="form show">
+                                <div className="filtro"><i onClick={() => this.hideform()} class="fa fa-times" aria-hidden="true"></i></div>
+                                <form>
+                                    <div>Añade un titulo</div>
+                                    <input type="text" placeholder="Titulo del nuevo hilo"></input>
+                                    <input type="submit" value="Nuevo hilo"></input>
+                                </form>
+                            </div>
+                            <Link to="/home"><i className="fa fa-arrow-left" aria-hidden="true"></i></Link>
+                            <h4>Hilos de consultas</h4>
+                            <h5 onClick={() => this.showform()}>Crear nuevo hilo +</h5>
+                            <div className="container">
+                                {this.props.pet.thread.map((thread, idx) => <div key={idx} onClick={() => this.setThread(thread)} className="hilo">{thread.title}</div>)}
+                            </div>
+                        </div>
+                    )
+                }
+            }
         }
         else{
             return(

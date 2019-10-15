@@ -39,7 +39,8 @@ export default class Vetsearch extends Component {
     render() {
         return (
             <div className="vet">
-                <form>
+                hola
+                {/* <form>
                     <label>Busca el email de un usuario</label>
                     <input value={this.value} onChange={(e)=>this.changeValue(e)} placeholder="Email" type="text"></input>
                 </form>
@@ -50,7 +51,7 @@ export default class Vetsearch extends Component {
                         <p>{pet.name}</p>
                         <p>{pet.owner}</p>
                     </li>)}
-                </ul>
+                </ul> */}
             </div>
         )
     }

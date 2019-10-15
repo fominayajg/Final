@@ -37,6 +37,11 @@ class ProfileService {
             .then(response => response.data)
     }
 
+    newThread(pet,email,title){
+        console.log(pet,email,title)
+        return this.service.get(`/newthread/?email=${email}&name=${pet}&title=${title}`)
+            .then(response => response.data)
+    }
 
 }
 

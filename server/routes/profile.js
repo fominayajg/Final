@@ -56,6 +56,12 @@ router.get('/updatepet', (req, res) => {
 })
 
 
+router.get('newThread', (req, res) => {
+   console.log(req.query)
+})
+
+
+
 
 
 

@@ -3,6 +3,7 @@ import './Consults.css'
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import ReactToPrint from "react-to-print";
+import ProfileService from "../../../services/profile";
 
  class Consults extends Component {
 
@@ -13,7 +14,9 @@ import ReactToPrint from "react-to-print";
             thread:[],
             show:false,
             showform:false,
+            title:"",
     }
+        this.service = new ProfileService();
 }
 
         componentWillReceiveProps(nextProps) {
@@ -29,13 +32,19 @@ import ReactToPrint from "react-to-print";
         }
 
         showform(){
-            console.log(this.state)
             this.setState({ ...this.state, showform: true })
         }
-     hideform() {
-         console.log(this.state)
-         this.setState({ ...this.state, showform: false })
-     }
+        hideform() {
+            this.setState({ ...this.state, showform: false })
+        }
+        async newThread(e){
+            e.preventDefault()
+            const x = await this.service.newThread(this.props.pet.name, this.props.pet.owner, this.state.title)
+        }
+
+        title(e){
+            this.setState({ ...this.state, title:e.target.value},()=>console.log(this.state.title))
+        }
 
     render() {
         
@@ -74,8 +83,8 @@ import ReactToPrint from "react-to-print";
                                 <div className="filtro"><i onClick={() => this.hideform()} class="fa fa-times" aria-hidden="true"></i></div>
                                 <form>
                                     <div>Añade un titulo</div>
-                                    <input type="text" placeholder="Titulo del nuevo hilo"></input>
-                                    <input type="submit" value="Nuevo hilo"></input>
+                                    <input onChange={(e)=>this.title(e)} type="text" placeholder="Titulo del nuevo hilo"></input>
+                                    <input onClick={(e)=>this.newThread(e)} type="submit" value="Nuevo hilo"></input>
                                 </form>
                             </div>
                             <Link to="/home"><i className="fa fa-arrow-left" aria-hidden="true"></i></Link>

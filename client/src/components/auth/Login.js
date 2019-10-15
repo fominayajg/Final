@@ -46,13 +46,13 @@ class Login extends Component {
       <div>
         <a href="https://vet-app-fominayajg.herokuapp.com/api/auth/google">Sign In with Google</a>
       </div>
-      <form onSubmit={this.handleFormSubmit}>
+      {/* <form onSubmit={this.handleFormSubmit}>
           <h3>Login</h3>
           <input placeholder="Username" type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
           <input placeholder="Password" type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
 
         <input type="submit" value="Login" />
-      </form>
+      </form> */}
 
       <h1>{this.state.error ? 'Error' : ''}</h1>
     </div>)

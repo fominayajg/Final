@@ -38,14 +38,14 @@ class Navbar extends Component {
         <div>
           <nav>
             <h1>VetApp</h1>
-            <ul>
+            {/* <ul>
               <li>
                 <Link to="/signup">Signup</Link>
               </li>
               <li>
                 <Link to="/login">Login</Link>
               </li>
-            </ul>
+            </ul> */}
           </nav>
         </div>
       );

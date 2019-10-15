@@ -39,13 +39,13 @@ export default class Vetsearch extends Component {
     render() {
         return (
             <div className="vet">
-                hola
-                {/* <form>
+
+                <form>
                     <label>Busca el email de un usuario</label>
                     <input value={this.value} onChange={(e)=>this.changeValue(e)} placeholder="Email" type="text"></input>
                 </form>
 
-                <ul>
+                {/* <ul>
                     <li>Pets :</li>
                     {this.state.pets.map((pet, index) => <li className="pet" onClick={() => this.props.selectPet(this.state.pets[index])}>
                         <p>{pet.name}</p>

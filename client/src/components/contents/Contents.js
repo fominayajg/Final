@@ -42,6 +42,12 @@ class Contents extends Component {
     this.setState({ ...this.state, selectedPet: pet.pet }) 
   }
 
+  getNewInfoTwo = (pet) => {
+    console.log(pet)
+    // console.log(this.state.selectedPet)
+    this.setState({ ...this.state, selectedPet:pet })
+  }
+
 
   selectPet(pet){
     this.setState({
@@ -86,7 +92,7 @@ class Contents extends Component {
 
           <Switch>
             <Route exact path="/home" render={() => <Thread selectPet={(pet)=>this.selectPet(pet)} role={this.state.loggedInUser.role} pet={this.state.selectedPet} getNewInfo={(data)=>{this.getNewInfo(data)}} />} />
-            <Route exact path="/consults" render={() => <Consults user={this.state.loggedInUser} pet={this.state.selectedPet} />} />
+            <Route exact path="/consults" render={() => <Consults user={this.state.loggedInUser} getNewInfoTwo={(data) => { this.getNewInfoTwo(data) }}  pet={this.state.selectedPet} />} />
           </Switch>
         </div>
       )

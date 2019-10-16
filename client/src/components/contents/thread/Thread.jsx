@@ -130,7 +130,7 @@ export default class Thread extends Component {
                             <Chart weight={this.props.pet.weight} />
                             {!this.state.show &&
                                 <div className="generals">
-                                    <div>DATA <i onClick={() => this.showForm()} class="fa fa-pencil" aria-hidden="true"></i></div>
+                                    <div>DATA <i onClick={() => this.showForm()} className="fa fa-pencil" aria-hidden="true"></i></div>
                                     <div>Age: {this.props.pet.data.age}</div>
                                     <div>Race: {this.props.pet.data.race}</div>
                                     <div>Sex: {this.props.pet.data.sex}</div>

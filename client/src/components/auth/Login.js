@@ -44,7 +44,8 @@ class Login extends Component {
     return (<div className="auth">
       
       <div>
-        <a href="https://vet-app-fominayajg.herokuapp.com/api/auth/google">Sign In with Google</a>
+        <a href="http://localhost:3010/api/auth/google">Sign In with Google</a>
+        {/* <a href="https://vet-app-fominayajg.herokuapp.com/api/auth/google">Sign In with Google</a> */}
       </div>
       {/* <form onSubmit={this.handleFormSubmit}>
           <h3>Login</h3>

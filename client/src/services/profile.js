@@ -38,11 +38,18 @@ class ProfileService {
     }
 
     newThread(pet,email,title){
-        console.log(pet,email,title)
         return this.service.get(`/newthread/?email=${email}&name=${pet}&title=${title}`)
             .then(response => response.data)
     }
+    newConsult(pet,email,esp,indi,desc,key){
+        return this.service.get(`/newconsult/?email=${email}&name=${pet}&esp=${esp}&desc=${desc}&indi=${indi}&key=${key}`)
+            .then(response => response.data)
+    }
 
+    createPet(type,email,name){
+        return this.service.get(`/newpet/?email=${email}&name=${name}&type=${type}`)
+            .then(response => response.data)
+    }
 }
 
 export default ProfileService;

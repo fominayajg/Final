@@ -1,7 +1,7 @@
 .vet{
   width: 15%;
   height: 100%;
-  padding:5% 20px 0;
+  padding:5% 20px 80px;
   text-align: center; 
   background: #312d2d;
   color:white;
@@ -42,5 +42,59 @@
 .pet:hover{
     transform: scale(1.1)
     translateX(30px)
+}
+
+.addpet{
+    font-size: 1em;
+    color:white;
+    margin-bottom: 50px;
+    cursor:pointer;
+    transition:0.3s all ease;
+}
+
+.addpet:hover{
+    transform: scale(1.1)
+}
+
+.add .radio{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+}
+
+.add{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.add form input{
+    margin-top:0;
+    margin-bottom: 30px;
+}
+
+.add form div.radio input{
+    margin-top:3px;
+    width: auto;
+    margin-bottom: 0;
+}
+
+.add button{
+    padding:10px 15px;
+    border-radius:5px;
+    font-size: 0.8em;
+    margin-top:40px;
+    cursor: pointer;
+}
+
+.add .fa{
+    position:absolute;
+    top:-2%;
+    left:0;
+    color:white;
 }
 

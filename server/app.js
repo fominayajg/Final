@@ -13,14 +13,15 @@ const cors = require('cors');
 const passport = require('passport');
 require('dotenv').config();
 const User = require('./models/User');
+const logger = require('morgan')
 
 
-const { DBURL } = process.env;
+const { DBURLR } = process.env;
 mongoose.Promise = Promise;
 mongoose
-  .connect(DBURL)
+  .connect(DBURLR)
   .then(() => {
-    console.log(`Connected to Mongo on ${DBURL}`)
+    console.log(`Connected to Mongo on Monguer`)
   }).catch(err => {
     console.error('Error connecting to mongo', err)
   });
@@ -72,7 +73,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-
+app.use(logger('dev'))
 
 const authRouter = require('./routes/auth');
 app.use('/api/auth', authRouter);

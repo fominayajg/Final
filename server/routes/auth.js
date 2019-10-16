@@ -98,7 +98,9 @@ const { google } = require('googleapis')
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "https://vet-app-fominayajg.herokuapp.com/api/auth/google/callback"
+  // callbackURL: "https://vet-app-fominayajg.herokuapp.com/api/auth/google/callback"
+  callbackURL: "http://localhost:3010/api/auth/google/callback"
+
 },
   function (req, accessToken, refreshToken, profile, done) {
     User.findOne({ googleId: profile.id })
@@ -133,7 +135,8 @@ router.get('/google',
 router.get('/google/callback',
   passport.authenticate('google', { failureRedirect: '/login' }),
   function (req, res) {
-    res.redirect('https://vet-app-fominayajg.herokuapp.com/Home');
+    res.redirect('http://localhost:3000/Home');
+    // res.redirect('https://vet-app-fominayajg.herokuapp.com/Home');
   });
 
 

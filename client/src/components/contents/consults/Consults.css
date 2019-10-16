@@ -3,6 +3,12 @@ h4{
     font-size: 2.5em;
     margin:20px 0;
 }
+h6{
+    text-align: center;
+    font-size: 1.2em;
+    margin:20px 0;
+    cursor:pointer;
+}
 
 .consults{
 width: 85%;
@@ -11,9 +17,89 @@ overflow-y:scroll;
 height: 93vh;
 }
 
+.formy{
+    width:85%;
+    height: 93vh;
+    top:7vh;
+    right: -100%;
+    background:rgba(0, 0, 0, 0.7);
+    position: fixed;
+    transition: 0.7s all ease;
+    z-index: 10;
+}
+
+.formy i.fa{
+     color:white;
+    font-size: 3em;
+    position: absolute;
+    top:3%;
+    right:10%;
+    /* padding: 15vh; */
+}
+
+.formy.mostrar{
+   right: 0;
+}
+
+.formy div{
+    position: absolute;
+    width:50%;
+    /* height: 50vh; */
+    top:15%;
+    left:25%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding:20px 0 40px;
+    
+}
+
+.formy label{
+ margin-top:20px;
+ text-align: start;
+}
+.formy input{
+    width:40%;
+    padding:10px 15px;
+    border: 1px solid lightgrey;
+    font-size:1.2em;
+    margin-top:5px;
+}
+.formy textarea{
+    width:70%;
+    height: 25%;
+    resize: none;
+    overflow: scroll;
+    padding:10px 15px;
+    outline:none;
+    font-size:1.2em;
+    border: 1px solid lightgrey;
+     margin-top:5px;
+   
+}
+
+.formy button{
+    padding: 15px 10px;
+    border:1px solid lightgrey;
+    border-radius: 7px;
+    margin-top:20px;
+    font-size:1.2em;
+    cursor: pointer;
+    transition: 0.3s all ease;
+}
+
+.formy button:hover{
+  transform: scale(1.2);
+  background: rgba(51,109,233,1);
+  color: white;
+}
+
 .consults .container{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     padding: 0 30px;
     height: auto;
 
@@ -109,18 +195,18 @@ margin-top:40px;
 
 
 div.form{
-    width:100%;
-    height:100%;
+    width:85%;
+    height:93vh;
     transform:scale(1);
-    position:absolute;
-    top:-100%;
-    left:0;
+    position:fixed;
+    top:7vh;
+    right:-100%;
     transition:0.7s all ease;
     /* background: red; */
     z-index: 5;
 }
 div.form.show{
-    top:0;
+    right:0;
     transform: scale(1);
 }
 
@@ -131,8 +217,8 @@ div.form .filtro{
     opacity: 0.7;
 }
 .form form{
-    width:30%;
-    position: absolute;
+    width:40%;
+    position: fixed;
     top:20%;
     left: 35%;
     z-index: 6;

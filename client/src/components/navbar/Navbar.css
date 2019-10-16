@@ -6,6 +6,7 @@ nav{
 	justify-content: flex-end;
 	align-items: center;
 	box-shadow: 0 0 3px 0 grey;
+	z-index: 80;
 }
 
 

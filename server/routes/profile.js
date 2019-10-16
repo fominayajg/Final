@@ -56,11 +56,63 @@ router.get('/updatepet', (req, res) => {
 })
 
 
-router.get('newThread', (req, res) => {
-   console.log(req.query)
+router.get('/newthread', (req, res) => {
+    let filter = { owner: req.query.email, name: req.query.name }
+   Pet.find(filter)
+   .then((pet)=>{
+       
+       let ncons={
+           title:req.query.title,
+           consultas:[]
+       }
+    //    console.dir(pet[0].thread)
+    //    console.dir(ncons)
+       pet[0].thread.unshift(ncons)
+       
+    //    console.dir(pet[0].thread)
+       Pet.findOneAndUpdate(filter, {thread: pet[0].thread},{new:true})
+           .then(pet => res.status(200).json({ pet }))
+   })
 })
 
+router.get('/newconsult', (req, res) => {
+    let filter = { owner: req.query.email, name: req.query.name }
+    Pet.find(filter)
+    .then((pet)=>{
+        var d = new Date();
+        ndate = `${d.getDate()}-${d.getMonth() + 1}-${d.getFullYear()}`
+       
+            let ncons = {
+            esp: req.query.esp,
+            description: req.query.desc,
+            indications: req.query.indi,
+            date:ndate
+        }
+        pet[0].thread[req.query.key].consultas.push(ncons)
+         
+        
+        Pet.findOneAndUpdate(filter, { thread: pet[0].thread}, { new: true })
+            .then(pet => res.status(200).json({ pet }))
+    })
+})
 
+router.get('/newpet',(req,res)=>{
+
+   let nPet={
+        name:req.query.name,
+        type:req.query.type,
+        owner:req.query.email,
+        data:{
+            sex: 'M',
+            age: ' Years',
+            castrated: 'No',
+            race: ''
+        },
+        weight:[],
+        thread:[]
+    }
+    Pet.create(nPet).then((pet) => res.status(200).json({ pet }))
+})
 
 
 

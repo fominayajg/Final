@@ -114,6 +114,23 @@ router.get('/newpet',(req,res)=>{
     Pet.create(nPet).then((pet) => res.status(200).json({ pet }))
 })
 
+router.get('/newweight', (req, res) => {
+    var d = new Date();
+    ndate = `${d.getDate()}-${d.getMonth() + 1}-${d.getFullYear()}`
+    let filter = { owner: req.query.email, name: req.query.name }
+    Pet.find(filter)
+    .then(pet=>{
+        let nweight={
+            weight:req.query.weight,
+            date:ndate
+        }
+        pet[0].weight.push(nweight)
+
+        Pet.findOneAndUpdate(filter, { weight: pet[0].weight }, { new: true })
+            .then(pet => res.status(200).json({ pet }))
+    })
+})
+
 
 
 

@@ -50,6 +50,12 @@ class ProfileService {
         return this.service.get(`/newpet/?email=${email}&name=${name}&type=${type}`)
             .then(response => response.data)
     }
+
+    addWeight(weight,email,name){
+        console.log(email,name)
+        return this.service.get(`/newweight/?weight=${weight}&email=${email}&name=${name}`)
+            .then(response => response.data)
+    }
 }
 
 export default ProfileService;

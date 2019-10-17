@@ -37,13 +37,13 @@ class Contents extends Component {
   }
 
   getNewInfo=(pet)=>{
-    console.log(pet.pet)
-    console.log(this.state.selectedPet)
+  
+    // console.log(this.state.selectedPet)
     this.setState({ ...this.state, selectedPet: pet.pet }) 
   }
 
   getNewInfoTwo = (pet) => {
-    console.log(pet)
+    
     // console.log(this.state.selectedPet)
     this.setState({ ...this.state, selectedPet:pet })
   }
@@ -76,7 +76,7 @@ class Contents extends Component {
           <Selector selectPet={(pet) => this.selectPet(pet)} pets={this.state.pets} username={this.state.loggedInUser.username} />
           {/* <Thread pet={this.state.selectedPet} /> */}
           <Switch>
-            <Route exact path="/home" render={() => <Thread role={this.state.loggedInUser.role} email={this.state.userEmail} pet={this.state.selectedPet} />} />
+            <Route exact path="/home" render={() => <Thread getNewInfoTwo={(data) => { this.getNewInfoTwo(data) }} role={this.state.loggedInUser.role} email={this.state.userEmail} pet={this.state.selectedPet} />} />
             <Route exact path="/consults" render={() => <Consults user={this.state.loggedInUser} pet={this.state.selectedPet} />} />
             <Route exact path="/reservations" render={() => <Reservations user={this.state.userEmail} pet={this.state.selectedPet} />} />
           </Switch>
@@ -91,7 +91,7 @@ class Contents extends Component {
           <Vetsearch selectPet={(pet) => this.selectPet(pet)}></Vetsearch>
 
           <Switch>
-            <Route exact path="/home" render={() => <Thread selectPet={(pet)=>this.selectPet(pet)} role={this.state.loggedInUser.role} pet={this.state.selectedPet} getNewInfo={(data)=>{this.getNewInfo(data)}} />} />
+            <Route exact path="/home" render={() => <Thread getNewInfoTwo={(data) => { this.getNewInfoTwo(data) }} selectPet={(pet)=>this.selectPet(pet)} role={this.state.loggedInUser.role} pet={this.state.selectedPet} getNewInfo={(data)=>{this.getNewInfo(data)}} />} />
             <Route exact path="/consults" render={() => <Consults user={this.state.loggedInUser} getNewInfoTwo={(data) => { this.getNewInfoTwo(data) }}  pet={this.state.selectedPet} />} />
           </Switch>
         </div>

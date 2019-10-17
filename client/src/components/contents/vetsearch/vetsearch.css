@@ -89,6 +89,8 @@
     font-size: 0.8em;
     margin-top:40px;
     cursor: pointer;
+    transition:0.3s all ease;
+    opacity: 1;
 }
 
 .add .fa{
@@ -96,5 +98,10 @@
     top:-2%;
     left:0;
     color:white;
+    
+}
+
+.add button:hover{
+    transform:scale(1.2);
 }
 

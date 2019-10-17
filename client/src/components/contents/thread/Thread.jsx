@@ -16,6 +16,8 @@ export default class Thread extends Component {
             race:"",
             sex:"",
             castrated:"",
+            addw:false,
+            nweight:""
         }
 
         this.service = new ProfileService();
@@ -29,6 +31,7 @@ export default class Thread extends Component {
         this.setState({
             ...this.state,
             show: false,
+            addw: false,
         })
     }
     
@@ -79,10 +82,39 @@ export default class Thread extends Component {
             this.props.getNewInfo(data)
          
         })
-        
-        
-        
 
+    }
+
+    changew(){
+        this.setState({
+            ...this.state,
+            addw: true,
+        })
+    }
+    dontShowadd(){
+        this.setState({
+            ...this.state,
+            addw: false,
+        })
+    }
+    newWeight(e){
+        e.preventDefault()
+        console.log(this.state.pet)
+        this.service.addWeight(this.state.nweight, this.state.pet.owner, this.state.pet.name)
+       .then(pet=>{
+           this.setState({
+               ...this.state,
+               pet: pet.pet,
+               addw: false
+           }, () => this.props.getNewInfoTwo(this.state.pet))
+       })
+        
+    }
+    changeInput(e){
+        this.setState({
+            ...this.state,
+            nweight: e.target.value,
+        })
     }
 
 
@@ -122,12 +154,15 @@ export default class Thread extends Component {
             
         )
             }else{
+
+                if(this.state.addw===false){
                 return (
                     <div className="thread">
                         <h4>{this.props.pet.name}</h4>
                         <h5>{this.props.pet.type}</h5>
                         <div className="charts">
                             <Chart weight={this.props.pet.weight} />
+                            <div onClick={()=>this.changew()} className="addwidth">Add weight +</div>
                             {!this.state.show &&
                                 <div className="generals">
                                     <div>DATA <i onClick={() => this.showForm()} className="fa fa-pencil" aria-hidden="true"></i></div>
@@ -141,10 +176,10 @@ export default class Thread extends Component {
                             {this.state.show &&
                                 <form className="generals">
                                     <div>DATA <i onClick={() => this.showForm()} class="fa fa-pencil" aria-hidden="true"></i></div>
-                                    <input type="text" onChange={(e)=>{this.changeValue(e,"age")}} value={this.state.age}></input>
-                                    <input type="text" onChange={(e)=>{this.changeValue(e,"race")}} value={this.state.race}></input>
-                                    <input type="text" onChange={(e)=>{this.changeValue(e,"sex")}} value={this.state.sex}></input>
-                                    <input type="text" onChange={(e)=>{this.changeValue(e,"castrated")}} value={this.state.castrated}></input>
+                                    <input placeholder="Age" type="text" onChange={(e)=>{this.changeValue(e,"age")}} value={this.state.age}></input>
+                                    <input placeholder="Race" type="text" onChange={(e)=>{this.changeValue(e,"race")}} value={this.state.race}></input>
+                                    <input placeholder="Sex" type="text" onChange={(e)=>{this.changeValue(e,"sex")}} value={this.state.sex}></input>
+                                    <input placeholder="Castrated" type="text" onChange={(e)=>{this.changeValue(e,"castrated")}} value={this.state.castrated}></input>
                                     <input type="submit" onClick={(e)=>{this.editInfo(e)}} value="Editar"></input>
                                 </form>
                             }
@@ -159,9 +194,72 @@ export default class Thread extends Component {
                                 <div>Calendario</div>
                             </Link> */}
                         </div>
-                    </div>
 
+                        
+                            <div className="weight">
+                            <i onClick={() => this.dontShowadd()} className="fa fa-times" aria-hidden="true"></i>
+                                <form>
+                                    <label htmlFor="weight">Weight(Kg):</label>
+                                    <input placeholder="Weight" id="weight" type="text" />
+                                    <button>Add weight</button>
+                                </form>
+                            </div>
+                        
+
+                    </div>
+ 
                 )
+                    }else{
+                        return(
+                            <div className="thread">
+                                <h4>{this.props.pet.name}</h4>
+                                <h5>{this.props.pet.type}</h5>
+                                <div className="charts">
+                                    <Chart weight={this.props.pet.weight} />
+                                    <div onClick={() => this.changew()} className="addwidth">Add weight +</div>
+                                    {!this.state.show &&
+                                        <div className="generals">
+                                            <div>DATA <i onClick={() => this.showForm()} className="fa fa-pencil" aria-hidden="true"></i></div>
+                                            <div>Age: {this.props.pet.data.age}</div>
+                                            <div>Race: {this.props.pet.data.race}</div>
+                                            <div>Sex: {this.props.pet.data.sex}</div>
+                                            <div>Castrated: {this.props.pet.data.castrated}</div>
+                                        </div>
+                                    }
+
+                                    {this.state.show &&
+                                        <form className="generals">
+                                            <div>DATA <i onClick={() => this.showForm()} class="fa fa-pencil" aria-hidden="true"></i></div>
+                                            <input placeholder="Age" type="text" onChange={(e) => { this.changeValue(e, "age") }} value={this.state.age}></input>
+                                            <input placeholder="Race" type="text" onChange={(e) => { this.changeValue(e, "race") }} value={this.state.race}></input>
+                                            <input placeholder="Sex" type="text" onChange={(e) => { this.changeValue(e, "sex") }} value={this.state.sex}></input>
+                                            <input placeholder="Castrated" type="text" onChange={(e) => { this.changeValue(e, "castrated") }} value={this.state.castrated}></input>
+                                            <input type="submit" onClick={(e) => { this.editInfo(e) }} value="Editar"></input>
+                                        </form>
+                                    }
+
+                                </div>
+                                <div className="options">
+                                    <Link to="/consults">
+                                        <div>Historial de consultas</div>
+                                    </Link>
+
+                                    {/* <Link to="/calendar">
+                                <div>Calendario</div>
+                            </Link> */}
+                                </div>
+
+                                <div className="weight show">
+                                    <i onClick={() => this.dontShowadd()} className="fa fa-times" aria-hidden="true"></i>
+                                    <form>
+                                        <label htmlFor="weight">Weight(Kg):</label>
+                                        <input onChange={(e)=>this.changeInput(e)} placeholder="Weight" id="weight" type="text" />
+                                        <button onClick={(e)=>this.newWeight(e)}>Add weight</button>
+                                    </form>
+                                </div>
+                            </div>
+                        )
+                    }
             }
             }else{
                 return(

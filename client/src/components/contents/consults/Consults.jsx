@@ -182,7 +182,7 @@ import ProfileService from "../../../services/profile";
                         {/* <div>{this.state.thread.consultas[0].date}</div> */}
 
                         <form className="formy">
-                            holi
+                           
                         </form>
                     </div>
                 </div>

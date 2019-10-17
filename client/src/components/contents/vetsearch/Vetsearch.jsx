@@ -75,7 +75,7 @@ export default class Vetsearch extends Component {
     async Vetpet(){
         const x = await this.service.searchVetPet(this.state.value)
         
-
+        
         this.setState({
             ...this.state,
             pets: x.pets
@@ -111,7 +111,7 @@ export default class Vetsearch extends Component {
         )}else{
             return(
             <div className="vet add">
-                    <i onClick={() => this.dontShow()} class="fa fa-times" aria-hidden="true"></i>
+                    <i onClick={() => this.dontShow()} className="fa fa-times" aria-hidden="true"></i>
             <form>
                 <label>Nombre</label>
                  <input onChange={(e) => this.changeName(e)} placeholder="Nombre:" type="text"/>
